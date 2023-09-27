@@ -1,0 +1,32 @@
+version: '3.7'
+
+name: hopesolutions-dev
+
+services:
+  backend:
+    build: 
+      context: ./HopeSolutions
+    tty: true      
+    stdin_open: true 
+    volumes:
+      - ./HopeSolutions:/app
+    ports:
+      - 8000:8000
+    env_file:
+      - ./HopeSolutions/.env
+    depends_on:
+      - postgres
+    container_name: iaps-backend-dev
+
+  postgres:
+    image: postgres:13
+    restart: unless-stopped
+    env_file:
+      - ./HopeSolutions/.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    container_name: iaps-postgres-dev
+
+
+volumes:
+  postgres_data:
