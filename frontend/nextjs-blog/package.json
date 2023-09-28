@@ -2,15 +2,22 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "nodemon --exec 'next dev'",
     "start": "next start"
   },
   "dependencies": {
+    "chart.js": "^4.4.0",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "18.2.0",
+    "styled-components": "^6.0.8",
+    "typeface-quicksand": "^1.1.13"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

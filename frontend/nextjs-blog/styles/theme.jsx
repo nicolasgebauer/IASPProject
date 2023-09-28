@@ -1,15 +1,15 @@
 export const darkTheme = {
-    bg: "#181818",
-    primaryColor: "#FFF",
-    secondaryColor: "#AAAAAA",
-    grey: "#202020",
-    darkGrey: "#383838",
-    black: "#121212",
-    red: "#CC0000",
-    blue: "#3EA6FF",
-    white: "#FFF",
-    pink: "#F86782",
-    purple: "#282A36",
+    bg: "#F0F0F0", // Fondo más claro
+    primaryColor: "#333", // Color principal más claro
+    secondaryColor: "#777", // Color secundario más claro
+    grey: "#DDD", // Gris más claro
+    darkGrey: "#BBB", // Gris oscuro más claro
+    black: "#000", // Negro
+    red: "#FF5555", // Rojo más claro
+    blue: "#66A3FF", // Azul más claro
+    white: "#FFF", // Blanco
+    pink: "#FFA0B0", // Rosa más claro
+    purple: "#555", // Morado más claro
+    accentBlue: "#3EA6FF", // Toque de azul/celeste
     font: "Fira Sans",
   };
-  

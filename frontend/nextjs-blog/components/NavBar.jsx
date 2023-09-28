@@ -1,6 +1,5 @@
 
 import styled from 'styled-components';
-import Search from './Search';
 import { darkTheme } from '../styles/theme';
 
 
@@ -15,7 +14,7 @@ const Wrapper = styled.div`
   background: "#202020";
   z-index: 99;
   padding: 0.7rem 1.5rem;
-  background: ${darkTheme.grey};
+  background: ${darkTheme.darkGrey};
 
   input {
     width: 500px;
@@ -91,11 +90,10 @@ const Navbar = () => {
     <Wrapper>
       <div className="logo flex-row">
         <span>
-          CaseVault
+          HopeSolutions
         </span>
       </div>
         
-      <Search />
       <ul>
         <li>
           <p> hola</p>
