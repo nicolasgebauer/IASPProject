@@ -3,6 +3,7 @@ from .serializers import WarehouseSerializer, IntegrationSerializer
 from rest_framework import permissions, views, status
 from rest_framework.response import Response
 from Core.models import Warehouse, Integration
+
 class WarehouseListView(views.APIView):
     def get(self, request, format=None):
         warehouses = Warehouse.objects.all().order_by('name')
