@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 from os import getenv
 from pathlib import Path
+from decouple import config
 
 import dj_database_url
 
@@ -29,7 +30,7 @@ SECRET_KEY = 'django-insecure-$_=6_hs!fz#oth9(3gez9_4(wtm#)=3&fs9+9jilc)hx=f9p*y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -42,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "Core",
+    "General",
+    "Mantetainer",
+    "Retail",
 ]
 
 MIDDLEWARE = [
@@ -77,6 +81,18 @@ WSGI_APPLICATION = 'HopeSolutions.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+# # Database
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": config("POSTGRES_DB"),
+#         "USER": config("POSTGRES_USER"),
+#         "PASSWORD": config("POSTGRES_PASSWORD"),
+#         "HOST": "postgres",
+#         "PORT": "5432",
+#     }
+# }
 
 DATABASES = {
     "default": dj_database_url.parse(
