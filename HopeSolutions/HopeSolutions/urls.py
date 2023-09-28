@@ -21,6 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("Core.urls")),
     path("general/", include("General.urls")),
-    path("mantetainer/", include("Mantetainer.urls")),
+    path("maintainer/", include("Maintainer.urls")),
     path("retail/", include("Retail.urls")),
 ]
