@@ -10,7 +10,8 @@ fi
 case $1 in
   prod)
     echo "Starting production containers..."
-    exit 1
+    # Aquí deberías agregar los comandos necesarios para iniciar tus contenedores en producción
+    exit 0
     ;;
   dev)
     echo "Starting development containers..."
@@ -22,20 +23,21 @@ case $1 in
     if [ "$2" = "--withmigrations" -o "$2" = "-wm" ]; then
       docker exec iaps-backend-dev sh -c \
         "echo 'MAKEMIGRATIONS' &&
-        python manage.py makemigrations && 
+        python manage.py makemigrations --noinput && 
         echo 'MIGRATE' &&
         python manage.py migrate && 
-        echo 'RUNSERVER' &&
+        echo -e \"RUNNING SERVER ON \e[4mhttp://$DJANGO_IP:8000\e[24m\" &&
         python manage.py runserver $DJANGO_IP:8000"
     elif [ -z "$2" ]; then
-      echo ""
+      echo "Running without migrations"
     else
       echo "Error: Unrecognized arguments. Options are: --withmigrations or -wm"
+      exit 1
     fi
-    exit 1
+    exit 0
     ;;  
   *)
-    echo "Error: Unrecognized command. Only argument is 'dev' or 'prod'"
+    echo "Error: Unrecognized command. Only arguments are 'dev' or 'prod'"
     exit 1
     ;;
 esac
