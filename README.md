@@ -3,7 +3,7 @@
 
 **Importante para ejecutar:**
 
-1. Crea un archivo llamado `.env` dentro de la carpeta `HopeSolutions/HopeSolutions` con el siguiente formato:
+1. Crea un archivo llamado `.env` dentro de la carpeta `HopeSolutions` con el siguiente formato:
 
     ```plaintext
     DJANGO_IP=#.#.#.#
