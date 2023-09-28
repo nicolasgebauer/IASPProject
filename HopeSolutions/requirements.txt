@@ -4,3 +4,4 @@ Django==4.2.5
 psycopg2-binary==2.9.7
 sqlparse==0.4.4
 typing_extensions==4.8.0
+faker==5.0.*

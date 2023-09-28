@@ -1,11 +1,12 @@
 import django
 import os
+from django.utils import timezone
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'HopeSolutions.settings')
 django.setup()
 
 from faker import Faker
-from models import Product, Warehouse, Inventory, Integration, Client, Sale
+from Core.models import Product, Warehouse, Inventory, Integration, Client, Sale
 fake = Faker()
 
 class ProductFactory:
@@ -24,7 +25,7 @@ class ProductFactory:
                 size=fake.random_element(elements=('S', 'M', 'L', 'XL')),
                 category2=fake.bs(),
                 gender=fake.random_element(elements=('Male', 'Female', 'Other')),
-                creationDate=fake.date_time_this_year(),
+                creationDate=timezone.make_aware(fake.date_time_this_year()),
             )
             products.append(product)
         Product.objects.bulk_create(products)
@@ -85,7 +86,7 @@ class ClientFactory:
                 address=fake.address(),
                 city=fake.city(),
                 country=fake.country(),
-                creationDate=fake.date_time_this_year(),
+                creationDate=timezone.make_aware(fake.date_time_this_year()),
             )
             clients.append(client)
         Client.objects.bulk_create(clients)
@@ -99,7 +100,7 @@ class SaleFactory:
                 client=fake.random_element(elements=clients),
                 product=fake.random_element(elements=products),
                 integration=fake.random_element(elements=integrations),
-                creationDate=fake.date_time_this_year(),
+                creationDate=timezone.make_aware(fake.date_time_this_year()),
             )
             sales.append(sale)
         Sale.objects.bulk_create(sales)

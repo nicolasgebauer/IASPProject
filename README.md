@@ -19,3 +19,9 @@
 
    ```bash
    bash run.sh dev -wm
+
+
+4. Para poblar localmente, asegurese de que los contenedores esten corriendo, luego ejecute el siguente comando:
+    ```bash
+    docker exec iaps-backend-dev python "fakeFactory.py"
+    ```
