@@ -90,9 +90,9 @@ const SideBar = () => {
       </Link>
 
   
-      <Link href="/" passHref>
+      <Link href="/products" passHref>
         <div className="icon">
-          <h1>No Se que</h1>
+          <h1>Productos</h1>
         </div>
       </Link>
 
