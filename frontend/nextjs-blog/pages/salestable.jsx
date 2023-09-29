@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Navbar from "../components/NavBar";
 import Container from '../styles/Container';
 import Search from '../components/Search';
+import GlobalStyle from '../styles/GlobalStyle';
+import SideBar from '../components/SideBar';
 
 import { StyledHome } from '../components/SalesLayout';
 export default function Home() {
@@ -24,7 +26,10 @@ export default function Home() {
 
   return (
     <StyledHome>
+      <GlobalStyle />
+    <SideBar/>
     <Navbar />
+    
     <Container>
         <h1>
             Tabla de Ventas

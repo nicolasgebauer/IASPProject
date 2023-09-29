@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import SideBar from '../components/SideBar';
+import GlobalStyle from '../styles/GlobalStyle';
+import Navbar from '../components/NavBar';
+import { StyledHome } from './dashboard';
+import Container from '../styles/Container';
 function Products() {
   const [products, setProducts] = useState([]);
   
@@ -17,7 +21,15 @@ function Products() {
   }, []);
 
   return (
-    <div>
+
+    
+ 
+    <StyledHome>
+      <GlobalStyle />
+    <SideBar/>
+    <Navbar />
+    
+    <Container>
       <h1>Productos</h1>
       <table>
         <thead>
@@ -41,7 +53,8 @@ function Products() {
           ))}
         </tbody>
       </table>
-    </div>
+    </Container>
+    </StyledHome>
   );
 }
 

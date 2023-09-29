@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import SideBar from './SideBar';
 
 
 const TableContainer = styled.div`
@@ -40,6 +41,7 @@ const SalesTable = () => {
   return (
     <TableContainer>
       <StyledTable>
+        <SideBar/>
         <thead>
           <tr>
             <th>Client</th>
