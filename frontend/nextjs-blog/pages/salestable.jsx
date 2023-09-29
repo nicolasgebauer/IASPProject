@@ -26,6 +26,7 @@ import GlobalStyle from '../styles/GlobalStyle';
 import SideBar from '../components/SideBar';
 import Navbar from '../components/NavBar';
 import Container from '../styles/Container';
+
 function stableSort(array, comparator) {
   const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {
@@ -35,6 +36,7 @@ function stableSort(array, comparator) {
   });
   return stabilizedThis.map((el) => el[0]);
 }
+
 function getComparator(order, orderBy) {
   return order === 'desc'
     ? (a, b) => descendingComparator(a, b, orderBy)
