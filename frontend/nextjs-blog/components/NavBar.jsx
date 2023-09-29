@@ -1,7 +1,6 @@
 
 import styled from 'styled-components';
-import Search from './Search';
-import { darkTheme } from '../styles/theme';
+import { darkTheme } from '../styles/theme.jsx';
 
 
 const Wrapper = styled.div`
@@ -10,12 +9,61 @@ const Wrapper = styled.div`
   left: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: ceimport { Line } from 'react-chartjs-2';
+  import {
+      Chart as ChartJS,
+      CategoryScale,
+      PointElement,
+      LinearScale, 
+      LineElement,
+      Title,
+      Tooltip,
+      Legend,
+      Filler,
+  } from 'chart.js'
+  
+  ChartJS.register(
+      CategoryScale,
+      LineElement,
+      PointElement,
+      LineElement,
+      LinearScale, 
+      Title,
+      Tooltip,
+      Legend,
+      Filler
+  );
+  
+  var meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
+  var beneficios = [1,-2,13,34,-5,6,7,8,9,10,11,12]
+  var midata = {
+      labels: meses,
+      datasets: [
+          {
+              label: 'beneficios',
+              data: beneficios,
+              tension: 0.5,
+              fill: true,
+              borderColor: 'rgb(255,99,132)',
+              backgroundColor: 'rgba(255,99,132,0.5)',
+              pointRadius: 5,
+              pointBorderColor: 'rgba(255,99,132)',
+              pointBackgroundColor: 'rgba(255,99,132)',
+          },
+      ],
+  };
+  
+  var misoptions = {
+      
+  };
+  export default function LinesChart(){
+      return <Line data={midata} options={misoptions}/>
+  }nter;
   width: 100%;
   background: "#202020";
   z-index: 99;
   padding: 0.7rem 1.5rem;
-  background: ${darkTheme.grey};
+  background: ${darkTheme.darkGrey};
 
   input {
     width: 500px;
@@ -91,11 +139,10 @@ const Navbar = () => {
     <Wrapper>
       <div className="logo flex-row">
         <span>
-          CaseVault
+          HopeSolutions
         </span>
       </div>
         
-      <Search />
       <ul>
         <li>
           <p> hola</p>

@@ -10,6 +10,7 @@ import { darkTheme } from '../styles/theme';
 import DashboardLayout from '../components/DashboardLayout';
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from '../styles/GlobalStyle';
+import SalesLayout from '../components/SalesLayout';
 export const StyledHome = styled.div`
   padding: 1.3rem;
   width: 90%;
@@ -48,14 +49,14 @@ export const StyledHome = styled.div`
   padding-bottom: 2rem;
 `;
 
-const Dashboard = () => {
+const Sales= () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <GlobalStyle />
-      <DashboardLayout/>     
+      <SalesLayout/>     
     </ThemeProvider>
 
   );
 };
 
-export default Dashboard;
+export default Sales;

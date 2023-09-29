@@ -1,15 +1,13 @@
 import styled from 'styled-components';
-import Navbar from "../components/NavBar";
-import Sidebar from '../components/SideBar';
+import Navbar from "./NavBar";
+import Sidebar from './SideBar';
 import Container from '../styles/Container';
-import LinesChart from '../components/LinesChart';
+import LinesChart from './LinesChart';
 import ChartGrid from '../components/ChartGrid';
-import Search from '../components/Search';
+import Search from './Search';
 import SearchContainer from '../components/SearchContainer';
-import { darkTheme } from '../styles/theme';
-import DashboardLayout from '../components/DashboardLayout';
-import { ThemeProvider } from "styled-components";
-import GlobalStyle from '../styles/GlobalStyle';
+import SalesTable from './SalesTable';
+
 export const StyledHome = styled.div`
   padding: 1.3rem;
   width: 90%;
@@ -48,14 +46,22 @@ export const StyledHome = styled.div`
   padding-bottom: 2rem;
 `;
 
-const Dashboard = () => {
-  return (
-    <ThemeProvider theme={darkTheme}>
-      <GlobalStyle />
-      <DashboardLayout/>     
-    </ThemeProvider>
+const SalesLayout = () => {
 
+
+  return (
+    <StyledHome>
+      <Navbar />
+      <Sidebar />
+      <Container>
+        <h1>
+            Sales
+        </h1>
+        <p>Client</p><Search/>
+        <SalesTable/>
+      </Container>
+    </StyledHome>
   );
 };
 
-export default Dashboard;
+export default SalesLayout;

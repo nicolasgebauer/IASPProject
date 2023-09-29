@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { darkTheme } from "../styles/theme";
+import { useEffect } from "react";
 
 const SidebarWrapper = styled.div`
   position: fixed;
@@ -12,20 +13,42 @@ const SidebarWrapper = styled.div`
   padding-bottom: 1.5rem;
   transition: all 0.3s;
   z-index: 2;
-  background: ${darkTheme.grey};
+  background: ${darkTheme.white};
   &::-webkit-scrollbar {
     width: 0;
   }
 
+  .icon {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    margin-top:1rem;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.7rem;
+    font-family: ${darkTheme.font}, sans-serif;
+    color: ${darkTheme.primaryColor};
+    
+  }
 
+  .icon:not(.hover-disable):hover {
+    background: ${darkTheme.darkGrey};
+    cursor: pointer;
+  }
 
   .active div {
-    background: ${darkTheme.darkGrey};
+    background: ${darkTheme.white};
     cursor: pointer;
   }
 
   .active h1 {
     color: #fff;
+  }
+
+  .icon span {
+    padding-left: 1rem;
+    position: relative;
+    top: 1px;
   }
 
   @media screen and (max-width: 1093px) {
@@ -39,19 +62,27 @@ const SidebarWrapper = styled.div`
   }
 `;
 
-const Sidebar = () => {
+const SideBar = () => {
+  useEffect(() => {
+    // Aplicar estilos adicionales al componente al montar
+    const sidebarElement = document.querySelector(".sidebar");
 
+    if (sidebarElement) {
+      sidebarElement.style.backgroundColor = "lightblue";
+      
+    }
+  }, []);
   return (
     <SidebarWrapper>
-      <div className="icon2">
-        <h1>Home</h1>
+      <div className="icon">
+        <h1>Sales</h1>
       </div>
 
-      <div className="icon3">
-        <h1>Your Cases</h1>
+      <div className="icon">
+        <h1>Dashboard</h1>
       </div>
 
-      <div className="icon4">
+      <div className="icon">
         <h1>Saved Cases</h1>
       </div>
 
@@ -59,4 +90,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SideBar;
