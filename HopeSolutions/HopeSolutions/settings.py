@@ -61,7 +61,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'HopeSolutions.urls'
 
 TEMPLATES = [
@@ -153,8 +152,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = True
-CSRF_TRUSTED_ORIGINS = True
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000","http://0.0.0:3000"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000","http://0.0.0:3000"]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = [
     "accept",
