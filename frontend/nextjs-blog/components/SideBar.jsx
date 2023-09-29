@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import { darkTheme } from "../styles/theme";
 import { useEffect } from "react";
+import Link from 'next/link';
+
 
 const SidebarWrapper = styled.div`
   position: fixed;
@@ -74,20 +76,29 @@ const SideBar = () => {
   }, []);
   return (
     <SidebarWrapper>
-      <div className="icon">
-        <h1>Sales</h1>
-      </div>
+      <Link href="/sales" passHref>
+        <div className="icon">
+          <h1>Ventas</h1>
+        </div>
+      </Link>
 
-      <div className="icon">
-        <h1>Dashboard</h1>
-      </div>
 
-      <div className="icon">
-        <h1>Saved Cases</h1>
-      </div>
+      <Link href="/dashboard" passHref>
+        <div className="icon">
+          <h1>Tablero</h1>
+        </div>
+      </Link>
+
+  
+      <Link href="/" passHref>
+        <div className="icon">
+          <h1>No Se que</h1>
+        </div>
+      </Link>
 
     </SidebarWrapper>
   );
+  
 };
 
 export default SideBar;
