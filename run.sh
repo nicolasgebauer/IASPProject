@@ -26,8 +26,10 @@ case $1 in
         python manage.py makemigrations --noinput && 
         echo 'MIGRATE' &&
         python manage.py migrate && 
-        echo -e \"RUNNING SERVER ON \e[4mhttp://$DJANGO_IP:8000\e[24m\" &&
-        python manage.py runserver $DJANGO_IP:8000"
+
+        echo -e \"RUNNING BACKEND ON \e[4mhttp://$DJANGO_IP:$DJANGO_PORT\e[24m\" &&
+        python manage.py runserver $DJANGO_IP:$DJANGO_PORT"
+        
     elif [ -z "$2" ]; then
       echo "Running without migrations"
     else

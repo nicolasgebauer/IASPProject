@@ -1,6 +1,6 @@
-version: '3.7'
 
 name: hopesolutions-dev
+version: '3.7'
 
 services:
   backend:
@@ -18,6 +18,19 @@ services:
       - postgres
     container_name: iaps-backend-dev
 
+  frontend:
+    build:
+      context: ./frontend/nextjs-blog
+    ports:
+      - 3000:3000
+    container_name: iaps-frontend-dev
+
+    volumes:
+      - ./frontend/nextjs-blog:/app
+    env_file:  
+      - ./frontend/nextjs-blog/.env
+      
+
   postgres:
     image: postgres:13
     restart: unless-stopped
@@ -26,7 +39,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     container_name: iaps-postgres-dev
-
 
 volumes:
   postgres_data:

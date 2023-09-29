@@ -1,0 +1,6 @@
+{
+    "watch": ["*.js", "*.json", "*.jsx"],
+    "ignore": ["node_modules"],
+    "exec": "HOST=$NEXT_JS_IP PORT=$NEXT_JS_PORT next dev"
+}
+  
