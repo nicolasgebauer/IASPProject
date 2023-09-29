@@ -142,15 +142,6 @@ const Navbar = () => {
           HopeSolutions
         </span>
       </div>
-        
-      <ul>
-        <li>
-          <p> hola</p>
-        </li>
-        <li>
-        <p> hola</p>
-        </li>
-      </ul>
     </Wrapper>
   );
 };

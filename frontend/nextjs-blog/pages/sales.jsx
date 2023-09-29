@@ -11,6 +11,8 @@ import DashboardLayout from '../components/DashboardLayout';
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from '../styles/GlobalStyle';
 import SalesLayout from '../components/SalesLayout';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 export const StyledHome = styled.div`
   padding: 1.3rem;
   width: 90%;
@@ -50,6 +52,20 @@ export const StyledHome = styled.div`
 `;
 
 const Sales= () => {
+  const [inventoryData, setInventoryData] = useState([]);
+
+  useEffect(() => {
+    // Realiza la solicitud GET a la API
+    axios.get('http://localhost:8000/retail/sales/')
+      .then(response => {
+        // Actualiza el estado con los datos de la API
+        setInventoryData(response.data.inventory);
+      })
+      .catch(error => {
+        console.error('Error al obtener datos de la API', error);
+      });
+  }, []);
+  
   return (
     <ThemeProvider theme={darkTheme}>
       <GlobalStyle />

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
+
 
 const TableContainer = styled.div`
   margin-top: 1rem;
@@ -21,6 +23,20 @@ const StyledTable = styled.table`
 `;
 
 const SalesTable = () => {
+  const [inventoryData, setInventoryData] = useState([]);
+
+  useEffect(() => {
+    // Realiza la solicitud GET a la API
+    axios.get('http://localhost:8000/retail/sales/')
+      .then(response => {
+        // Actualiza el estado con los datos de la API
+        setInventoryData(response.data.inventory);
+      })
+      .catch(error => {
+        console.error('Error al obtener datos de la API', error);
+      });
+  }, []);
+
   return (
     <TableContainer>
       <StyledTable>
