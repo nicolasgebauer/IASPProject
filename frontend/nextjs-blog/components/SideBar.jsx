@@ -76,7 +76,7 @@ const SideBar = () => {
   }, []);
   return (
     <SidebarWrapper>
-      <Link href="/sales" passHref>
+      <Link href="/salestable" passHref>
         <div className="icon">
           <h1>Ventas</h1>
         </div>
