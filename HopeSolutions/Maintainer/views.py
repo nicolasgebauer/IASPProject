@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from Core.models import Warehouse, Integration
 
 class WarehouseListView(views.APIView):
-    permission_classes = (permissions.AllowAny)
     def get(self, request, format=None):
         warehouses = Warehouse.objects.all().order_by('name')
 
