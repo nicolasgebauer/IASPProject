@@ -22,13 +22,15 @@ const StyledTable = styled.table`
   }
 `;
 
-const SalesTable = () => {
-  const [salesData, setSalesData] = useState([]);
+const InventoryTable = () => {
+  const [inventoryData, setInventoryData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/retail/sales/')
+    // Realiza la solicitud GET a la API
+    axios.get('http://localhost:8000/general/inventory/')
       .then(response => {
-        setSalesData(response.data.sales);
+        // Actualiza el estado con los datos de la API
+        setInventoryData(response.data.inventory);
       })
       .catch(error => {
         console.error('Error al obtener datos de la API', error);
@@ -40,19 +42,17 @@ const SalesTable = () => {
       <StyledTable>
         <thead>
           <tr>
-            <th>Cliente</th>
             <th>Producto</th>
-            <th>Integracion</th>
-            <th>Fecha de Creacion</th>
+            <th>Bodega</th>
+            <th>Stock</th>
           </tr>
         </thead>
         <tbody>
-          {salesData.map(item => (
+          {inventoryData.map(item => (
             <tr key={item.product}>
-              <td>{item.client}</td>
               <td>{item.product}</td>
-              <td>{item.integration}</td>
-              <td>{item.creation_date}</td>
+              <td>{item.warehouse}</td>
+              <td>{item.stock}</td>
             </tr>
           ))}
         </tbody>
@@ -61,4 +61,4 @@ const SalesTable = () => {
   );
 };
 
-export default SalesTable;
+export default InventoryTable;
